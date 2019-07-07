@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Manantial de Oriente</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/matrix-style.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/landing-page.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a class="navbar-brand" href="pedidos.html">Pedidos</a>
+            <a class="navbar-brand" href="clientes.html">Clientes</a>
+            <a class="navbar-brand" href="historial.html">Historial</a>
+            <button class="btn btn-primary" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </div>
+    </nav>
+
+    <!-- Masthead -->
+    <header class="call-to-action text-white text-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h1 class="mb-5">Manantial de Oriente</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Icons Grid -->
+    <section class="features-icons bg-light text-center">
+        <button href="javascript:void(0)" data-toggle="modal" data-target="#nuevo-cliente" class="btn m-t-20 btn-info btn-block waves-effect waves-light">
+                    <i class="ti-plus"></i> Agregar Nuevo Cliente
+                </button>
+        <button href="javascript:void(0)" data-toggle="modal" data-target="#rest-deuda" class="btn m-t-20 btn-info btn-block waves-effect waves-light">
+                        <i class="ti-plus"></i> Pago de deuda
+                    </button>
+        <button href="javascript:void(0)" data-toggle="modal" data-target="#rest-garrafon" class="btn m-t-20 btn-info btn-block waves-effect waves-light">
+                            <i class="ti-plus"></i> Devolución garrafones
+                        </button>
+        <div class="container">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                    <h5>Clientes</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <table class="table table-bordered data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cliente</th>
+                                <th>Telefono</th>
+                                <th>Dirección</th>
+                                <th>Debe Dinero</th>
+                                <th>Debe garrafones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="gradeX">
+                                <td>Trident</td>
+                                <td>Internet Explorer 4.0</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeC">
+                                <td>Trident</td>
+                                <td>Internet Explorer 5.0</td>
+                                <td>Win 95+</td>
+                                <td class="center">5</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 5.5</td>
+                                <td>Win 95+</td>
+                                <td class="center">5.5</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 6</td>
+                                <td>Win 98+</td>
+                                <td class="center">6</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 7</td>
+                                <td>Win XP SP2+</td>
+                                <td class="center">7</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>Trident</td>
+                                <td>Internet Explorer 4.0</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeC">
+                                <td>Trident</td>
+                                <td>Internet Explorer 5.0</td>
+                                <td>Win 95+</td>
+                                <td class="center">5</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 5.5</td>
+                                <td>Win 95+</td>
+                                <td class="center">5.5</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 6</td>
+                                <td>Win 98+</td>
+                                <td class="center">6</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 7</td>
+                                <td>Win XP SP2+</td>
+                                <td class="center">7</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>Trident</td>
+                                <td>Internet Explorer 4.0</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeC">
+                                <td>Trident</td>
+                                <td>Internet Explorer 5.0</td>
+                                <td>Win 95+</td>
+                                <td class="center">5</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 5.5</td>
+                                <td>Win 95+</td>
+                                <td class="center">5.5</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 6</td>
+                                <td>Win 98+</td>
+                                <td class="center">6</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 7</td>
+                                <td>Win XP SP2+</td>
+                                <td class="center">7</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>Trident</td>
+                                <td>Internet Explorer 4.0</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeC">
+                                <td>Trident</td>
+                                <td>Internet Explorer 5.0</td>
+                                <td>Win 95+</td>
+                                <td class="center">5</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 5.5</td>
+                                <td>Win 95+</td>
+                                <td class="center">5.5</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 6</td>
+                                <td>Win 98+</td>
+                                <td class="center">6</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 7</td>
+                                <td>Win XP SP2+</td>
+                                <td class="center">7</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>Trident</td>
+                                <td>Internet Explorer 4.0</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeC">
+                                <td>Trident</td>
+                                <td>Internet Explorer 5.0</td>
+                                <td>Win 95+</td>
+                                <td class="center">5</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 5.5</td>
+                                <td>Win 95+</td>
+                                <td class="center">5.5</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 6</td>
+                                <td>Win 98+</td>
+                                <td class="center">6</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+                            <tr class="gradeA">
+                                <td>Trident</td>
+                                <td>Internet Explorer 7</td>
+                                <td>Win XP SP2+</td>
+                                <td class="center">7</td>
+                                <td>Win 95+</td>
+                                <td class="center">4</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="call-to-action text-white text-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h2 class="mb-4">Tu futuro es creado por lo que haces hoy, no mañana.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item">
+                            <a href="#">Regresar al inicio</a>
+                        </li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">&copy; Manantial de Oriente 2019. Todos los derechos reservados</p>
+                </div>
+                <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item mr-3">
+                            <a href="#">
+                                <i class="fab fa-facebook fa-2x fa-fw"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item mr-3">
+                            <a href="#">
+                                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-instagram fa-2x fa-fw"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade none-border" id="nuevo-cliente">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Nuevo Cliente</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label">Nombre: </label>
+                                <input class="form-control form-white" placeholder="-" type="text" id="nuevoGarrafon" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Dirección: </label>
+                                <input class="form-control form-white" placeholder="-" type="text" id="nuevoGarrafon" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Teléfono: </label>
+                                <input class="form-control form-white" placeholder="-" type="text" id="nuevoFardo" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Referencia: </label>
+                                <input class="form-control form-white" placeholder="-" type="text" id="nuevoFardo" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal" id="newPedido">Agregar</button>
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade none-border" id="rest-deuda">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pago de Deuda</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label">ID cliente: </label>
+                                <input class="form-control form-white" placeholder="-" type="text" id="nuevoGarrafon" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Pago: </label>
+                                <input class="form-control form-white" placeholder="Q" type="text" id="nuevoGarrafon" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal" id="newPedido">Agregar</button>
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade none-border" id="rest-garrafon">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Nuevo Cliente</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label">ID cliente: </label>
+                                <input class="form-control form-white" placeholder="-" type="text" id="nuevoGarrafon" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">No. Garrafones: </label>
+                                <input class="form-control form-white" placeholder="#" type="text" id="nuevoGarrafon" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal" id="newPedido">Agregar</button>
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Funciones JS-->
+    <script src="funciones.js"></script>
+    <script src="matrix.tables.js"></script>
+    <script src="jquery.dataTables.min.js"></script>
+</body>
+
+</html>
