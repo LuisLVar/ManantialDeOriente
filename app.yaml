@@ -12,5 +12,8 @@ handlers:
 - url: /clientes/.*
   script: clientes.php
 
+- url: /cssLogin\.css
+  static_files: cssLogin.css
+
 - url: /.*
   script: not_found.php
