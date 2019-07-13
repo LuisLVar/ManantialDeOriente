@@ -6,16 +6,46 @@ handlers:
 - url: /
   script: login.php
 
+- url: /pedidos/.*
+  script: pedidos.php
+
 - url: /clientes/.*
   script: clientes.php
+
+- url: /historial/.*
+  script: historial.php
+
+- url: /pedidostr/.*
+  script: pedidostr.php
 
 - url: /cssLogin\.css
   static_files: cssLogin.css
   upload: cssLogin.css
 
-- url: /vendor/bootstrap/css/
+- url: /funciones\.js
+  static_files: funciones.js
+  upload: funciones.js
+
+- url: /jquery.dataTables.min\.js
+  static_files: jquery.dataTables.min.js
+  upload: jquery.dataTables.min.js
+
+- url: /matrix.tables\.js
+  static_files: matrix.tables.js
+  upload: matrix.tables.js
+
+- url: /vendor
+  static_dir: vendor
+
+- url: /css
   static_dir: css
 
+- url: /img
+  static_dir: img
+
+- url: /(.*\.(gif|png|jpg))$
+  static_files: static/\1
+  upload: static/.*\.(gif|png|jpg)$
 
 - url: /.*
-  script: not_found.php
+  script: login.php
