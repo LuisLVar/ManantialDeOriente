@@ -6,15 +6,16 @@ handlers:
 - url: /
   script: login.php
 
-- url: /stylesheets
-  static_dir: stylesheets
-
 - url: /clientes/.*
   script: clientes.php
 
 - url: /cssLogin\.css
   static_files: cssLogin.css
   upload: cssLogin.css
+
+- url: /vendor/bootstrap/css/
+  static_dir: css
+
 
 - url: /.*
   script: not_found.php
