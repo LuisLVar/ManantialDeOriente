@@ -18,16 +18,16 @@ handlers:
   script: login.php
 
 
-- url: /pedidos\.php/.*
+- url: /pedidos\.php
   script: pedidos.php
 
-- url: /clientes\.php/.*
+- url: /clientes\.php
   script: clientes.php
 
-- url: /historial\.php/.*
+- url: /historial\.php
   script: historial.php
 
-- url: /pedidostr\.php/.*
+- url: /pedidostr\.php
   script: pedidostr.php
 
 - url: /cssLogin\.css
