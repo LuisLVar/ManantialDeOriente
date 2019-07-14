@@ -30,6 +30,10 @@ handlers:
 - url: /pedidostr\.php
   script: pedidostr.php
 
+- url: /logout\.php
+  script: logout.php
+
+
 - url: /cssLogin\.css
   static_files: cssLogin.css
   upload: cssLogin.css
