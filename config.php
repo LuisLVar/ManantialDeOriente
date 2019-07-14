@@ -1,5 +1,5 @@
 <?php
-   define('DB_SERVER', 'localhost');
+   define('DB_SERVER', 'dbmanantialdeoriente');
    define('DB_USERNAME', 'root');
    define('DB_PASSWORD', 'administrador');
    define('DB_DATABASE', 'dbmanantialdeoriente');
