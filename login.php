@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="container">
                         <div class="row">
                             <div class="col-md-9 col-lg-8 mx-auto">
-                                <h3 class="login-heading mb-4">Bienvenido!Prueba</h3>
+                                <h3 class="login-heading mb-4">Hola Diana, aun no me funciona jeje</h3>
                                 <form action="" method="post">
                                     <div class="form-label-group">
                                         <input type="text" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" required autofocus>
