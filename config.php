@@ -1,5 +1,5 @@
 <?php
-   define('DB_SERVER', 'dbmanantialdeoriente');
+   define('DB_SERVER', 'metal-voyager-246520:us-central1:dbmanantialdeoriente');
    define('DB_USERNAME', 'root');
    define('DB_PASSWORD', 'administrador');
    define('DB_DATABASE', 'dbmanantialdeoriente');
