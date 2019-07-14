@@ -88,7 +88,7 @@ if ($_SESSION['login_user'] != "admin") {
                 //$sql = "SELECT idUsuario FROM usuario WHERE usuario = '$myusername' and password = '$mypassword'";
                 //DATE_FORMAT(now(),'%d/%m/%Y %H:%i')
 
-                $sql = "insert into pedido values(0, $dateFinal, $nameCliente, $noGarrafon, $noFardo, 0, 0, 0, '$descripcion', 'ESPERA');";
+                $sql = "insert into pedido values(0, '$dateFinal', $nameCliente, $noGarrafon, $noFardo, 0, 0, 0, '$descripcion', 'ESPERA');";
                 $result = mysqli_query($db, $sql);
                 if ($result) {
                     echo "<hr><p><b><span style=\"color:#64C50E\";> Pedido ingresado exitosamente. </span></b></p><hr>";

@@ -72,6 +72,8 @@ if ($_SESSION['login_user'] != "usuario1") {
                 $noGarrafon = mysqli_real_escape_string($db, $_POST['nuevoGarrafon']);
                 $noFardo = mysqli_real_escape_string($db, $_POST['nuevoFardo']);
                 $descripcion = mysqli_real_escape_string($db, $_POST['nuevaDescripcion']);
+                $date = new DateTime("now", new DateTimeZone('America/Guatemala'));
+                $dateFinal = $date->format('d/m/Y H:i');
 
                 if ($noGarrafon == '') {
                     $noGarrafon = 0;
@@ -83,7 +85,7 @@ if ($_SESSION['login_user'] != "usuario1") {
 
                 //$sql = "SELECT idUsuario FROM usuario WHERE usuario = '$myusername' and password = '$mypassword'";
 
-                $sql = "insert into pedido values(0, DATE_FORMAT(now(),'%d/%m/%Y %H:%i'), $nameCliente, $noGarrafon, $noFardo, 0, 0, 0, '$descripcion', 'ESPERA');";
+                $sql = "insert into pedido values(0, '$dateFinal', $nameCliente, $noGarrafon, $noFardo, 0, 0, 0, '$descripcion', 'ESPERA');";
                 $result = mysqli_query($db, $sql);
                 if ($result) {
                     echo "<hr><p><b><span style=\"color:#64C50E\";> Pedido ingresado exitosamente. </span></b></p><hr>";
