@@ -14,7 +14,7 @@ handlers:
 - url: /
   script: login.php
 
-- url: /login\.php/.*
+- url: /login\.php
   script: login.php
 
 
