@@ -115,13 +115,13 @@ if ($_SESSION['login_user'] != "admin") {
                                     <h6 class="font-medium" value="' . $data["fCliente"] . '" name="idCliente">' . $data["fCliente"] . ' - ' . $data["nombre"] . '</h6>
                                     <span value="' . $data["idPedido"] . '" name="idPedido">ID Pedido: ' . $data["idPedido"] . '<br></span>
                                     <span value="' . $data["cantidadGarrafon"] . '" name="noGarrafon">Garrafones: ' . $data["cantidadGarrafon"] . '<br></span>
-                                    <span value="' . $data["cantidadFardo"] . '" name="noFardos">Fardos: ' . $data["cantidadFardo"] . ' </span>
+                                    <span value="' . $data["cantidadFardo"] . '" name="noFardos">Fardos: ' . $data["cantidadFardo"] . ' <br></span>
                                     <span value="' . $data["observacion"] . '" name="DataObservacion">Descripcion: ' . $data["observacion"] . ' </span>
                                     <div class="comment-footer">
                                         <button type="button" class="btn btn-primary btn-sm" onclick = "sendInfo(\'' . $data["nombre"] . '\'
                                         , \'' . $data["direccion"] . '\', \'' . $data["telefono"] . '\', \'' . $data["referencia"] . '\'
-                                        , \'' . $data["Observacion"] . '\')">Información</button>
-                                        <button type="button" class="btn btn-success btn-sm" onclick = "sendHecho(' . $data["idPedido"] . ')">Hecho</button>
+                                        , \'' . $data["observacion"] . '\')">Información</button>
+                                        <button type="button" class="btn btn-success btn-sm" onclick = "sendHecho(' . $data["idPedido"] . ')">Entregar</button>
                                         <button type="button" class="btn btn-danger btn-sm" onclick = "sendCancelar(' . $data["idPedido"] . ')">Cancelar</button>
                                     </div>
                                 </div>

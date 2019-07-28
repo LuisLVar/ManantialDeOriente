@@ -22,11 +22,12 @@ if ($_SESSION['login_user'] != "admin") {
 
     <!-- Custom styles for this template -->
     <link href="css/landing-page.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="select2.min.css" />
 
     <!-- Custom fonts for this template -->
     <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-   
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -34,7 +35,8 @@ if ($_SESSION['login_user'] != "admin") {
     <script src="matrix.tables.js"></script>
     <script src="jquery.dataTables.min.js"></script>
     <script src="funciones.js"></script>
-   
+    <script src="select2.min.js"></script>
+
 
 </head>
 
@@ -294,20 +296,20 @@ if ($_SESSION['login_user'] != "admin") {
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="control-label">ID cliente: </label>
-                                <select class="form-control form-white" data-placeholder="Cliente..." name="clienteDinero">
-                                        <?php
-                                        $sql = "select * from cliente;";
-                                        $result = mysqli_query($db, $sql);
+                                <select class="form-control form-white" data-placeholder="Cliente..." name="clienteDinero" id="SelectClienteDeuda">
+                                    <?php
+                                    $sql = "select * from cliente;";
+                                    $result = mysqli_query($db, $sql);
 
-                                        if ($result) {
-                                            while ($data = mysqli_fetch_assoc($result)) {
-                                                echo '<option value="' . $data["idCliente"] . '">' . $data["idCliente"] . ' - ' .
-                                                    $data["nombre"] . '</option>';
-                                            }
-                                        } else {
-                                            echo "Error al cargar cliente.";
+                                    if ($result) {
+                                        while ($data = mysqli_fetch_assoc($result)) {
+                                            echo '<option value="' . $data["idCliente"] . '">' . $data["idCliente"] . ' - ' .
+                                                $data["nombre"] . '</option>';
                                         }
-                                        ?>
+                                    } else {
+                                        echo "Error al cargar cliente.";
+                                    }
+                                    ?>
                                 </select>
                             </div>
                             <div class="col-md-6">
@@ -336,20 +338,20 @@ if ($_SESSION['login_user'] != "admin") {
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="control-label">ID cliente: </label>
-                                <select class="form-control form-white" data-placeholder="Cliente..." name="clienteGarrafon">
-                                        <?php
-                                        $sql = "select * from cliente;";
-                                        $result = mysqli_query($db, $sql);
+                                <select class="form-control form-white" data-placeholder="Cliente..." name="clienteGarrafon" id = "SelectClienteGarrafon">
+                                    <?php
+                                    $sql = "select * from cliente;";
+                                    $result = mysqli_query($db, $sql);
 
-                                        if ($result) {
-                                            while ($data = mysqli_fetch_assoc($result)) {
-                                                echo '<option value="' . $data["idCliente"] . '">' . $data["idCliente"] . ' - ' .
-                                                    $data["nombre"] . '</option>';
-                                            }
-                                        } else {
-                                            echo "Error al cargar cliente.";
+                                    if ($result) {
+                                        while ($data = mysqli_fetch_assoc($result)) {
+                                            echo '<option value="' . $data["idCliente"] . '">' . $data["idCliente"] . ' - ' .
+                                                $data["nombre"] . '</option>';
                                         }
-                                        ?>
+                                    } else {
+                                        echo "Error al cargar cliente.";
+                                    }
+                                    ?>
                                 </select>
                             </div>
                             <div class="col-md-6">
@@ -369,3 +371,16 @@ if ($_SESSION['login_user'] != "admin") {
 </body>
 
 </html>
+
+<script>
+    $("#SelectClienteGarrafon").select2({
+        placeholder: "Cliente...",
+        allowClear: true
+    });
+</script>
+<script>
+    $("#SelectClienteDeuda").select2({
+        placeholder: "Cliente...",
+        allowClear: true
+    });
+</script>
