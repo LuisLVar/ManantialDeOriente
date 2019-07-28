@@ -113,6 +113,7 @@ if ($_SESSION['login_user'] != "usuario1") {
                                     <span value="' . $data["idPedido"] . '" name="idPedido">ID Pedido: ' . $data["idPedido"] . '<br></span>
                                     <span value="' . $data["cantidadGarrafon"] . '" name="noGarrafon">Garrafones: ' . $data["cantidadGarrafon"] . '<br></span>
                                     <span value="' . $data["cantidadFardo"] . '" name="noFardos">Fardos: ' . $data["cantidadFardo"] . ' </span>
+                                    <span value="' . $data["observacion"] . '" name="DataObservacion">Descripcion: ' . $data["observacion"] . ' </span>
                                     <div class="comment-footer">
                                         <button type="button" class="btn btn-primary btn-sm" onclick = "sendInfo(\'' . $data["nombre"] . '\'
                                         , \'' . $data["direccion"] . '\', \'' . $data["telefono"] . '\', \'' . $data["referencia"] . '\'

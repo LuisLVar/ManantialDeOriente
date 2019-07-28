@@ -180,8 +180,8 @@ if ($_SESSION['login_user'] != "admin") {
                                     echo '<tr class= "gradeX">
                                     <td>' . $data["idCliente"] . ' </td>
                                     <td>' . $data["nombre"] . '</td>
-                                    <td>' . $data["direccion"] . '</td>
                                     <td>' . $data["telefono"] . '</td>
+                                    <td>' . $data["direccion"] . '</td>
                                     <td>' . $data["referencia"] . '</td>
                                     <td class="center">' . $data["Debe_dinero"] . '</td>
                                     <td class="center">' . $data["Debe_garrafon"] . '</td>

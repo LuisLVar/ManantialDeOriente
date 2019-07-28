@@ -5,7 +5,7 @@ function sendInfo(nombre, direccion, telefono, referencia, observacion) {
     $("#infoDireccion").text("Dirección: " + direccion);
     $("#infoTelefono").text("Teléfono: " + telefono);
     $("#infoReferencia").text("Referencia: " + referencia);
-    $("#infoObservacion").text("Observación: " + observacion);
+    $("#infoObservacion").text("Descripcion: " + observacion);
     $('#info-user').modal();
 
 }

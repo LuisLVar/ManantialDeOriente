@@ -82,7 +82,7 @@ if ($_SESSION['login_user'] != "admin") {
                                 <th>Pago</th>
                                 <th>Debe (Q)</th>
                                 <th>Debe garrafones</th>
-                                <th>Observacion</th>
+                                <th>Descripcion</th>
                                 <th>Estado</th>
                             </tr>
                         </thead>

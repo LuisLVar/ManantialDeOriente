@@ -103,7 +103,7 @@ if ($_SESSION['login_user'] != "admin") {
                         <?php
 
                         $sql = "select P.idPedido,C.nombre, C.direccion, C.telefono, C.referencia, P.fCliente, P.cantidadGarrafon, 
-                        P.cantidadFardo, P.Observacion from pedido P inner join cliente C on P.fCliente = C.idCliente where P.Estado = 'ESPERA' order by P.idPedido";
+                        P.cantidadFardo, P.observacion from pedido P inner join cliente C on P.fCliente = C.idCliente where P.Estado = 'ESPERA' order by P.idPedido";
                         $result = mysqli_query($db, $sql);
                         //onclick = "sendInfo(' . $data["idPedido"] .')
                         if ($result) {
@@ -116,6 +116,7 @@ if ($_SESSION['login_user'] != "admin") {
                                     <span value="' . $data["idPedido"] . '" name="idPedido">ID Pedido: ' . $data["idPedido"] . '<br></span>
                                     <span value="' . $data["cantidadGarrafon"] . '" name="noGarrafon">Garrafones: ' . $data["cantidadGarrafon"] . '<br></span>
                                     <span value="' . $data["cantidadFardo"] . '" name="noFardos">Fardos: ' . $data["cantidadFardo"] . ' </span>
+                                    <span value="' . $data["observacion"] . '" name="DataObservacion">Descripcion: ' . $data["observacion"] . ' </span>
                                     <div class="comment-footer">
                                         <button type="button" class="btn btn-primary btn-sm" onclick = "sendInfo(\'' . $data["nombre"] . '\'
                                         , \'' . $data["direccion"] . '\', \'' . $data["telefono"] . '\', \'' . $data["referencia"] . '\'
