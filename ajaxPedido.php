@@ -8,6 +8,14 @@ include('session.php');
         $cancelo = $Pedido["canceloQ"];
         $debeQ = $Pedido["debeQ"];
         $debeG = $Pedido["debeG"];
+
+        if ($debeG == '' || $debeG == null) {
+            $debeG = 0;
+        }
+        if ($debeQ == '' || $debeQ == null) {
+            $debeQ = 0;
+        }
+
         //echo "alert($idPedido);";
         //$sql = "SELECT idUsuario FROM usuario WHERE usuario = '$myusername' and password = '$mypassword'";
         //update cliente set Debe_dinero = suma1, Debe_garrafon = suma2 where idCliente = id;

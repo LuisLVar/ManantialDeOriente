@@ -31,12 +31,6 @@ function entregaPedidoClick() {
     $('#entregaDebeQ').val('');
     $('#entregaDebeG').val('');
 
-    if (debeG == '' || debeG == null) {
-        debeG = 0;
-    }
-    if (debeQ == '' || debeQ == null) {
-        debeG = 0;
-    }
     sendDataHecho(canceloQ, debeQ, debeG);
 }
 
