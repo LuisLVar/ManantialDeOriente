@@ -95,7 +95,7 @@ if ($_SESSION['login_user'] != "usuario1") {
             }
             ?>
             <div>
-                <div class="container" style="padding-left: 80px">
+                <div class="container">
                     <div class="row">
                         <?php
 
