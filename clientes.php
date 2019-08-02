@@ -69,6 +69,9 @@ if ($_SESSION['login_user'] != "admin") {
         <button href="javascript:void(0)" data-toggle="modal" data-target="#nuevo-cliente" class="btn m-t-20 btn-info btn-block waves-effect waves-light">
             <i class="ti-plus"></i> Agregar Nuevo Cliente
         </button>
+        <button href="javascript:void(0)" data-toggle="modal" data-target="#editar-cliente" class="btn m-t-20 btn-info btn-block waves-effect waves-light">
+            <i class="ti-plus"></i> Editar Cliente
+        </button>
         <button href="javascript:void(0)" data-toggle="modal" data-target="#rest-deuda" class="btn m-t-20 btn-info btn-block waves-effect waves-light">
             <i class="ti-plus"></i> Pago de deuda
         </button>
@@ -94,6 +97,73 @@ if ($_SESSION['login_user'] != "admin") {
             }
         }
         ?>
+
+        <?php
+        if (isset($_POST['submitEditarCliente'])) {
+            $idCliente = mysqli_real_escape_string($db, $_POST['editarCliente']);
+            $nameCliente = mysqli_real_escape_string($db, $_POST['editarName']);
+            $dirCliente = mysqli_real_escape_string($db, $_POST['editarDir']);
+            $telClient = mysqli_real_escape_string($db, $_POST['editarTel']);
+            $refClient = mysqli_real_escape_string($db, $_POST['editarRef']);
+
+            if ($idCliente != null || $idCliente != '') {
+                //Nombre del Cliente
+                if ($nameCliente != '' || $nameCliente != null) {
+                    $sql = "UPDATE cliente SET nombre ='$nameCliente' WHERE idCliente= $idCliente ;";
+                    $result = mysqli_query($db, $sql);
+
+                    if ($result) {
+                        $message = "";
+                        echo "<hr><p><b><span style=\"color:#64C50E\"> Nombre de Cliente editado exitosamente. </span></b></p><hr>";
+                    } else {
+                        echo "<br><br><hr><p><b><span style=\"color:red\"> Error al editar nombre de cliente. </span></b></p><hr>";
+                    }
+                }
+
+                //Direccion del Cliente
+                if ($dirCliente != '' || $dirCliente != null) {
+                    $sql1 = "UPDATE cliente SET direccion ='$dirCliente' WHERE idCliente= $idCliente ;";
+                    $result1 = mysqli_query($db, $sql1);
+
+                    if ($result1) {
+                        $message = "";
+                        echo "<hr><p><b><span style=\"color:#64C50E\"> Direccion de Cliente editado exitosamente. </span></b></p><hr>";
+                    } else {
+                        echo "<br><br><hr><p><b><span style=\"color:red\"> Error al editar direccion de cliente. </span></b></p><hr>";
+                    }
+                }
+
+                //Telefono del Cliente
+                if ($telClient != '' || $telClient != null) {
+                    $sql2 = "UPDATE cliente SET telefono ='$telClient' WHERE idCliente= $idCliente ;";
+                    $result2 = mysqli_query($db, $sql2);
+
+                    if ($result2) {
+                        $message = "";
+                        echo "<hr><p><b><span style=\"color:#64C50E\"> Telefono de Cliente editado exitosamente. </span></b></p><hr>";
+                    } else {
+                        echo "<br><br><hr><p><b><span style=\"color:red\"> Error al editar telefono de cliente. </span></b></p><hr>";
+                    }
+                }
+
+                //Referencia del Cliente
+                if ($refClient != '' || $refClient != null) {
+                    $sql3 = "UPDATE cliente SET referencia ='$refClient' WHERE idCliente= $idCliente ;";
+                    $result3 = mysqli_query($db, $sql3);
+
+                    if ($result3) {
+                        $message = "";
+                        echo "<br><br><hr><p><b><span style=\"color:#64C50E\"> Referencia de Cliente editada exitosamente. </span></b></p><hr>";
+                    } else {
+                        echo "<br><br><hr><p><b><span style=\"color:red\"> Error al editar referencia de cliente. </span></b></p><hr>";
+                    }
+                }
+            } else {
+                echo "<br><br><hr><p><b><span style=\"color:red\"> Error al editar, ID de cliente incorrecto. </span></b></p><hr>";
+            }
+        }
+        ?>
+
         <?php
         if (isset($_POST['submitDinero'])) {
             $nameCliente = mysqli_real_escape_string($db, $_POST['clienteDinero']);
@@ -284,19 +354,20 @@ if ($_SESSION['login_user'] != "admin") {
             </div>
         </div>
     </div>
-    <div class="modal fade none-border" id="rest-deuda">
+    <div class="modal fade none-border" id="editar-cliente">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Pago de Deuda</h4>
+                    <h4 class="modal-title">Editar Cliente</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form action="" method="post">
                         <div class="row">
                             <div class="col-md-6">
-                                <label class="control-label">ID cliente: </label>
-                                <select class="form-control form-white" data-placeholder="Cliente..." name="clienteDinero" id="SelectClienteDeuda">
+                                <label class="control-label">Cliente: </label>
+                                <input class="form-control form-white" data-placeholder="Cliente..." list="listaEditar" name="editarCliente">
+                                <datalist id="listaEditar">
                                     <?php
                                     $sql = "select * from cliente;";
                                     $result = mysqli_query($db, $sql);
@@ -310,7 +381,63 @@ if ($_SESSION['login_user'] != "admin") {
                                         echo "Error al cargar cliente.";
                                     }
                                     ?>
-                                </select>
+                                </datalist>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Nombre: </label>
+                                <input class="form-control form-white" placeholder="-" type="text" id="direccionCliente" name="editarName" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Dirección: </label>
+                                <input class="form-control form-white" placeholder="-" type="text" id="direccionCliente" name="editarDir" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Teléfono: </label>
+                                <input class="form-control form-white" placeholder="-" type="text" id="telCliente" name="editarTel" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Referencia: </label>
+                                <input class="form-control form-white" placeholder="-" type="text" id="refCliente" name="editarRef" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger waves-effect waves-light save-category" name="submitEditarCliente">Agregar</button>
+                            <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade none-border" id="rest-deuda">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pago de Deuda</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label">ID cliente: </label>
+                                <input class="form-control form-white" data-placeholder="Cliente..." list="listaDeuda" name="clienteDinero">
+                                <datalist id="listaDeuda">
+                                    <?php
+                                    $sql = "select * from cliente;";
+                                    $result = mysqli_query($db, $sql);
+
+                                    if ($result) {
+                                        while ($data = mysqli_fetch_assoc($result)) {
+                                            echo '<option value="' . $data["idCliente"] . '">' . $data["idCliente"] . ' - ' .
+                                                $data["nombre"] . '</option>';
+                                        }
+                                    } else {
+                                        echo "Error al cargar cliente.";
+                                    }
+                                    ?>
+                                </datalist>
                             </div>
                             <div class="col-md-6">
                                 <label class="control-label">Pago: </label>
@@ -338,7 +465,8 @@ if ($_SESSION['login_user'] != "admin") {
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="control-label">ID cliente: </label>
-                                <select class="form-control form-white" data-placeholder="Cliente..." name="clienteGarrafon" id = "SelectClienteGarrafon">
+                                <input class="form-control form-white" data-placeholder="Cliente..." list="listaGarrafon" name="clienteGarrafon">
+                                <datalist id="listaGarrafon">
                                     <?php
                                     $sql = "select * from cliente;";
                                     $result = mysqli_query($db, $sql);
@@ -352,7 +480,7 @@ if ($_SESSION['login_user'] != "admin") {
                                         echo "Error al cargar cliente.";
                                     }
                                     ?>
-                                </select>
+                                </datalist>
                             </div>
                             <div class="col-md-6">
                                 <label class="control-label">No. Garrafones: </label>

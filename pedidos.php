@@ -288,21 +288,22 @@ if ($_SESSION['login_user'] != "admin") {
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="control-label">Cliente:</label>
-                                <select class="form-control form-white" data-placeholder="Cliente..." name="comboCliente">
-                                        <?php
-                                        $sql = "select * from cliente;";
-                                        $result = mysqli_query($db, $sql);
+                                <input class="form-control form-white" data-placeholder="Cliente..." list="listaPedido" name="comboCliente">
+                                <datalist id="listaPedido">
+                                    <?php
+                                    $sql = "select * from cliente;";
+                                    $result = mysqli_query($db, $sql);
 
-                                        if ($result) {
-                                            while ($data = mysqli_fetch_assoc($result)) {
-                                                echo '<option value="' . $data["idCliente"] . '">' . $data["idCliente"] . ' - ' .
-                                                    $data["nombre"] . '</option>';
-                                            }
-                                        } else {
-                                            echo "Error al cargar cliente.";
+                                    if ($result) {
+                                        while ($data = mysqli_fetch_assoc($result)) {
+                                            echo '<option value="' . $data["idCliente"] . '">' . $data["idCliente"] . ' - ' .
+                                                $data["nombre"] . '</option>';
                                         }
-                                        ?>
-                                </select>
+                                    } else {
+                                        echo "Error al cargar cliente.";
+                                    }
+                                    ?>
+                                </datalist>
                             </div>
                             <div class="col-md-6">
                                 <label class="control-label">Cantidad de Garrafones: </label>
