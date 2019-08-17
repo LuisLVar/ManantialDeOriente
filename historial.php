@@ -77,6 +77,7 @@ if ($_SESSION['login_user'] != "admin") {
                                 <th>No. Pedido</th>
                                 <th>Fecha</th>
                                 <th>Cliente</th>
+                                <th>Cliente X</th>
                                 <th>No. Garrafones</th>
                                 <th>No. Fardos</th>
                                 <th>Pago</th>
@@ -100,6 +101,7 @@ if ($_SESSION['login_user'] != "admin") {
         <td>' . $data["idPedido"] . ' </td>
         <td>' . $data["fecha"] . '</td>
         <td>' . $data["fCliente"] . ' - '. $data["nombre"] .'</td>
+        <td>' . $data["clienteX"] .'</td>
         <td class="center">' . $data["cantidadGarrafon"] . '</td>
         <td class="center">' . $data["cantidadFardo"] . '</td>
         <td class="center">' . $data["cancelo"] . '</td>

@@ -44,6 +44,7 @@ if ($_SESSION['login_user'] != "usuario1") {
         </div>
     </nav>
 
+
     <!-- Masthead -->
     <header class="call-to-action text-white text-center">
         <div class="overlay"></div>
@@ -69,6 +70,7 @@ if ($_SESSION['login_user'] != "usuario1") {
             <?php
             if (isset($_POST['submitPedido'])) {
                 $nameCliente = mysqli_real_escape_string($db, $_POST['comboCliente']);
+                $nameClienteX = mysqli_real_escape_string($db, $_POST['nameClienteX']);
                 $noGarrafon = mysqli_real_escape_string($db, $_POST['nuevoGarrafon']);
                 $noFardo = mysqli_real_escape_string($db, $_POST['nuevoFardo']);
                 $descripcion = mysqli_real_escape_string($db, $_POST['nuevaDescripcion']);
@@ -84,8 +86,9 @@ if ($_SESSION['login_user'] != "usuario1") {
                 //echo "document.alert(\"$nameCliente, $noGarrafon, $noFardo, $descripcion\");";
 
                 //$sql = "SELECT idUsuario FROM usuario WHERE usuario = '$myusername' and password = '$mypassword'";
+                //DATE_FORMAT(now(),'%d/%m/%Y %H:%i')
 
-                $sql = "insert into pedido values(0, '$dateFinal', $nameCliente, $noGarrafon, $noFardo, 0, 0, 0, '$descripcion', 'ESPERA');";
+                $sql = "insert into pedido values(0, '$dateFinal', $nameCliente, '$nameClienteX', $noGarrafon, $noFardo, 0, 0, 0, '$descripcion', 'ESPERA');";
                 $result = mysqli_query($db, $sql);
                 if ($result) {
                     echo "<hr><p><b><span style=\"color:#64C50E\";> Pedido ingresado exitosamente. </span></b></p><hr>";
@@ -100,7 +103,7 @@ if ($_SESSION['login_user'] != "usuario1") {
                         <?php
 
                         $sql = "select P.idPedido,C.nombre, C.direccion, C.telefono, C.referencia, P.fCliente, P.cantidadGarrafon, 
-                        P.cantidadFardo, P.Observacion from pedido P inner join cliente C on P.fCliente = C.idCliente where P.Estado = 'ESPERA' order by P.idPedido";
+                        P.cantidadFardo, P.observacion from pedido P inner join cliente C on P.fCliente = C.idCliente where P.Estado = 'ESPERA' order by P.idPedido";
                         $result = mysqli_query($db, $sql);
                         //onclick = "sendInfo(' . $data["idPedido"] .')
                         if ($result) {
@@ -109,16 +112,19 @@ if ($_SESSION['login_user'] != "usuario1") {
                             while ($data = mysqli_fetch_assoc($result)) {
                                 echo '<div class="col-lg-3" style="border:2px solid #1CB7C0; margin:5px; padding-top:5px;" id="pedido' . $data["idPedido"] . '">
                                 <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                                    <h6 class="font-medium" value="' . $data["fCliente"] . '" name="idCliente">' . $data["fCliente"] . ' - ' . $data["nombre"] . '</h6>
-                                    <span value="' . $data["idPedido"] . '" name="idPedido">ID Pedido: ' . $data["idPedido"] . '<br></span>
+                                    <h6 class="font-medium" value="' . $data["fCliente"] . '" name="idCliente">' . $data["fCliente"] . ' - ' . $data["nombre"] . '</h6>';
+                                    if($data["clienteX"] != ""){
+                                       echo '<span value="' . $data["clienteX"] . '" name="nombreClienteX">Cliente: ' . $data["clienteX"] . '<br></span>';
+                                    }
+                                    echo '<span value="' . $data["idPedido"] . '" name="idPedido">ID Pedido: ' . $data["idPedido"] . '<br></span>
                                     <span value="' . $data["cantidadGarrafon"] . '" name="noGarrafon">Garrafones: ' . $data["cantidadGarrafon"] . '<br></span>
-                                    <span value="' . $data["cantidadFardo"] . '" name="noFardos">Fardos: ' . $data["cantidadFardo"] . ' </span>
+                                    <span value="' . $data["cantidadFardo"] . '" name="noFardos">Fardos: ' . $data["cantidadFardo"] . ' <br></span>
                                     <span value="' . $data["observacion"] . '" name="DataObservacion">Descripcion: ' . $data["observacion"] . ' </span>
                                     <div class="comment-footer">
                                         <button type="button" class="btn btn-primary btn-sm" onclick = "sendInfo(\'' . $data["nombre"] . '\'
                                         , \'' . $data["direccion"] . '\', \'' . $data["telefono"] . '\', \'' . $data["referencia"] . '\'
-                                        , \'' . $data["Observacion"] . '\')">Información</button>
-                                        <button type="button" class="btn btn-success btn-sm" onclick = "sendHecho(' . $data["idPedido"] . ')">Hecho</button>
+                                        , \'' . $data["observacion"] . '\')">Información</button>
+                                        <button type="button" class="btn btn-success btn-sm" onclick = "sendHecho(' . $data["idPedido"] . ')">Entregar</button>
                                         <button type="button" class="btn btn-danger btn-sm" onclick = "sendCancelar(' . $data["idPedido"] . ')">Cancelar</button>
                                     </div>
                                 </div>
@@ -301,6 +307,10 @@ if ($_SESSION['login_user'] != "usuario1") {
                                     }
                                     ?>
                                 </datalist>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Nombre Cliente X: </label>
+                                <input class="form-control form-white" placeholder="Cliente X" type="text" name="nameClienteX" />
                             </div>
                             <div class="col-md-6">
                                 <label class="control-label">Cantidad de Garrafones: </label>

@@ -71,6 +71,7 @@ if ($_SESSION['login_user'] != "admin") {
             <?php
             if (isset($_POST['submitPedido'])) {
                 $nameCliente = mysqli_real_escape_string($db, $_POST['comboCliente']);
+                $nameClienteX = mysqli_real_escape_string($db, $_POST['nameClienteX']);
                 $noGarrafon = mysqli_real_escape_string($db, $_POST['nuevoGarrafon']);
                 $noFardo = mysqli_real_escape_string($db, $_POST['nuevoFardo']);
                 $descripcion = mysqli_real_escape_string($db, $_POST['nuevaDescripcion']);
@@ -88,7 +89,7 @@ if ($_SESSION['login_user'] != "admin") {
                 //$sql = "SELECT idUsuario FROM usuario WHERE usuario = '$myusername' and password = '$mypassword'";
                 //DATE_FORMAT(now(),'%d/%m/%Y %H:%i')
 
-                $sql = "insert into pedido values(0, '$dateFinal', $nameCliente, $noGarrafon, $noFardo, 0, 0, 0, '$descripcion', 'ESPERA');";
+                $sql = "insert into pedido values(0, '$dateFinal', $nameCliente, '$nameClienteX', $noGarrafon, $noFardo, 0, 0, 0, '$descripcion', 'ESPERA');";
                 $result = mysqli_query($db, $sql);
                 if ($result) {
                     echo "<hr><p><b><span style=\"color:#64C50E\";> Pedido ingresado exitosamente. </span></b></p><hr>";
@@ -112,8 +113,11 @@ if ($_SESSION['login_user'] != "admin") {
                             while ($data = mysqli_fetch_assoc($result)) {
                                 echo '<div class="col-lg-3" style="border:2px solid #1CB7C0; margin:5px; padding-top:5px;" id="pedido' . $data["idPedido"] . '">
                                 <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                                    <h6 class="font-medium" value="' . $data["fCliente"] . '" name="idCliente">' . $data["fCliente"] . ' - ' . $data["nombre"] . '</h6>
-                                    <span value="' . $data["idPedido"] . '" name="idPedido">ID Pedido: ' . $data["idPedido"] . '<br></span>
+                                    <h6 class="font-medium" value="' . $data["fCliente"] . '" name="idCliente">' . $data["fCliente"] . ' - ' . $data["nombre"] . '</h6>';
+                                    if($data["clienteX"] != ""){
+                                       echo '<span value="' . $data["clienteX"] . '" name="nombreClienteX">Cliente: ' . $data["clienteX"] . '<br></span>';
+                                    }
+                                    echo '<span value="' . $data["idPedido"] . '" name="idPedido">ID Pedido: ' . $data["idPedido"] . '<br></span>
                                     <span value="' . $data["cantidadGarrafon"] . '" name="noGarrafon">Garrafones: ' . $data["cantidadGarrafon"] . '<br></span>
                                     <span value="' . $data["cantidadFardo"] . '" name="noFardos">Fardos: ' . $data["cantidadFardo"] . ' <br></span>
                                     <span value="' . $data["observacion"] . '" name="DataObservacion">Descripcion: ' . $data["observacion"] . ' </span>
@@ -304,6 +308,10 @@ if ($_SESSION['login_user'] != "admin") {
                                     }
                                     ?>
                                 </datalist>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Nombre Cliente X: </label>
+                                <input class="form-control form-white" placeholder="Cliente X" type="text" name="nameClienteX" />
                             </div>
                             <div class="col-md-6">
                                 <label class="control-label">Cantidad de Garrafones: </label>
