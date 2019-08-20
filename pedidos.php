@@ -104,7 +104,7 @@ if ($_SESSION['login_user'] != "admin") {
                         <?php
 
                         $sql = "select P.idPedido,C.nombre, C.direccion, C.telefono, C.referencia, P.fCliente, P.cantidadGarrafon, 
-                        P.cantidadFardo, P.observacion from pedido P inner join cliente C on P.fCliente = C.idCliente where P.Estado = 'ESPERA' order by P.idPedido";
+                        P.cantidadFardo, P.observacion, P.clienteX from pedido P inner join cliente C on P.fCliente = C.idCliente where P.Estado = 'ESPERA' order by P.idPedido";
                         $result = mysqli_query($db, $sql);
                         //onclick = "sendInfo(' . $data["idPedido"] .')
                         if ($result) {

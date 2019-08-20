@@ -90,7 +90,7 @@ if ($_SESSION['login_user'] != "admin") {
                         <tbody>
                             <?php
 
-                            $sql = "select P.idPedido, P.fecha, P.fCliente, P.cantidadGarrafon, P.cantidadFardo,
+                            $sql = "select P.idPedido, P.fecha, P.fCliente, P.clienteX, P.cantidadGarrafon, P.cantidadFardo,
                              P.cancelo, P.debeQ, P.DebeGarrafon, P.Observacion, P.Estado, 
                              C.nombre from pedido P inner join cliente C on P.fCliente = C.idCliente order by P.idPedido";
                             $result = mysqli_query($db, $sql);
